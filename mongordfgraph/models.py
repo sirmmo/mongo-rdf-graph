@@ -31,7 +31,7 @@ class Resource(object):
 		self.blank_node = BN
 		self.is_node = node
 
-      	def set_attribute(self, attribute, value, vtype="rdfs:Literal", language=None):
+      	def set_property(self, property, value, vtype="rdfs:Literal", language=None):
                 if not self.attributes.has_key(attribute.uuid):
        	                self.attributes[attribute.uuid] = []
 		att = {}
