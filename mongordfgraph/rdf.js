@@ -10,5 +10,19 @@ s.save( {
 	value:function(short, uri) {
 		db.namespaces.save({'_id':short, 'uri':uri});
 		}
-	});
+	} );
 
+s.save( {
+	_id:"storeTriple",
+	value:function(subject, predicate, object){
+
+		/*test valid arguments (subject must be uri)*/
+		/*test valid arguments (predicate must be uri)*/
+		/*test valid arguments (object must be uri or Literal)*/
+
+		subj = db.triplestore.find({_id:subject});
+		if (subj.count() == 0){
+			db.triplestore.save({subject:{predicate:[object]}});
+		}
+	}
+	} );
